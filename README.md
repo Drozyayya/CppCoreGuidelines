@@ -3,9 +3,9 @@
 >"Within C++ is a smaller, simpler, safer language struggling to get out."
 >-- <cite>Bjarne Stroustrup</cite>
 
-The [C++ Core Guidelines](CppCoreGuidelines.md) are a collaborative effort led by Bjarne Stroustrup, much like the C++ language itself. They are the result of many
-person-years of discussion and design across a number of organizations. Their design encourages general applicability and broad adoption but
-they can be freely copied and modified to meet your organization's needs.
+<div dir="rtl">
+
+[رهنمودهای بنیادین سی پلاس پلاس](CppCoreGuidelines-Persian.md) با تلاش بزرگان این زبان از جمله سازنده اصلی تولید و نگهداری می گردد و در اینجا ما یک نسخه کوچک تر شده و فارسی از آن را ارایه می کینم که برای شرکت های که با این زبان کار می کنند ان شا الله مفید واقع شود
 
 ## Getting started
 
