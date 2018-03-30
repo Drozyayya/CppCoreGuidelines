@@ -1,3 +1,8 @@
+<p align="center">
+بسم الله الرحمن الرحیم
+
+
+
 [![C++ Core Guidelines](cpp_core_guidelines_logo_text.png)](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
 
 >"Within C++ is a smaller, simpler, safer language struggling to get out."
@@ -7,12 +12,13 @@
 
 [رهنمودهای بنیادین سی پلاس پلاس](CppCoreGuidelines-Persian.md) با تلاش بزرگان این زبان از جمله سازنده اصلی تولید و نگهداری می گردد و در اینجا ما یک نسخه کوچک تر شده و فارسی از آن را ارایه می کینم که برای شرکت های که با این زبان کار می کنند ان شا الله مفید واقع شود
 
-## Getting started
+## شروع کنید
 
-The guidelines themselves are found at [CppCoreGuidelines](CppCoreGuidelines.md). The document is in GH-flavored MarkDown. It is intentionally kept simple, mostly in ASCII, to allow automatic post-processing such as language translation and reformatting. The editors maintain one
-[version formatted for browsing](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines). Note that it is manually integrated and can be slightly older than the version in the master branch.
+دو مستند وجود دارد یکی نسخه مرجع که در [CppCoreGuidelines](CppCoreGuidelines.md) قابل خواندن است و نسخه‌ای است که بر اساس آن مستند فارسی توسعه داده شده است، نسخه دوم نسخه فارسی می‌باشد که در [رهنمود‌های بنیادین سی پلاس پلاس](CppCoreGuidelines-Persian.md)  قابل خواندن است و آخرین نکات تایید شده برای رعایت شدن در شرکت‌ها در آن آمده است
 
-The Guidelines are a constantly evolving document without a strict "release" cadence. Bjarne Stroustrup periodically reviews the document and increments the version number in the introduction. [Checkins that increment the version number](https://github.com/isocpp/CppCoreGuidelines/releases) are tagged in git. 
+[یک نسخه مناسب برای مرورگر](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) به زبان انگلیسی نیز وجود دارد که به صورت دستی بروزرسانی می‌گردد و معمولا از آخرین تغییرات عقب تر است
+
+این مستند به ان‌شا‌الله به طور مدام در [مخزن مرجع بروزرسانی](https://github.com/isocpp/CppCoreGuidelines) می‌گردد و به تبع آن ان‌شا‌الله در اینجا نیز تغییرات به صورت دوره‌ای بروزرسانی می‌گردد و بعد از بررسی‌های لازم مستند یک نسخه جدید از مستند با افزایش شماره نسخه منتشر می‌گردد. برای دیدن انتشار‌های فعلی مستند می‌تواند به [بخش انتشار‌ها](https://github.com/BSVN/CppCoreGuidelines/releases) مراجعه کنید.
 
 Many of the guidelines make use of the header-only Guideline Support Library. One implementation is available at [GSL: Guideline Support Library](https://github.com/Microsoft/GSL).
 
