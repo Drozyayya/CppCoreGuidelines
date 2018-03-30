@@ -18,38 +18,33 @@
 
 [یک نسخه مناسب برای مرورگر](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) به زبان انگلیسی نیز وجود دارد که به صورت دستی بروزرسانی می‌گردد و معمولا از آخرین تغییرات عقب تر است
 
-این مستند به ان‌شا‌الله به طور مدام در [مخزن مرجع بروزرسانی](https://github.com/isocpp/CppCoreGuidelines) می‌گردد و به تبع آن ان‌شا‌الله در اینجا نیز تغییرات به صورت دوره‌ای بروزرسانی می‌گردد و بعد از بررسی‌های لازم مستند یک نسخه جدید از مستند با افزایش شماره نسخه منتشر می‌گردد. برای دیدن انتشار‌های فعلی مستند می‌تواند به [بخش انتشار‌ها](https://github.com/BSVN/CppCoreGuidelines/releases) مراجعه کنید.
+این مستند ان‌شا‌الله به طور مدام در [مخزن مرجع بروزرسانی](https://github.com/isocpp/CppCoreGuidelines) می‌گردد و به تبع آن ان‌شا‌الله در اینجا نیز تغییرات به صورت دوره‌ای بروزرسانی می‌گردد و بعد از بررسی‌های لازم مستند یک نسخه جدید از مستند با افزایش شماره نسخه منتشر می‌گردد. برای دیدن انتشار‌های فعلی مستند می‌تواند به [بخش انتشار‌ها](https://github.com/BSVN/CppCoreGuidelines/releases) مراجعه کنید.
 
-Many of the guidelines make use of the header-only Guideline Support Library. One implementation is available at [GSL: Guideline Support Library](https://github.com/Microsoft/GSL).
+بسیاری از رهنمود‌ها از کتابخانه پشتیبانی رهنمود[1] استفاده می‌کنند. یک پیاده‌سازی اصلی از این کتابخانه در [GSL: Guideline Support Library](https://github.com/Microsoft/GSL) قابل دسترسی می‌باشد.
 
-## Background and scope
+## پیش ضمینه و حوزه
 
-The aim of the guidelines is to help people to use modern C++ effectively. By "modern C++" we mean C++11 and C++14 (and soon C++17). In other
-words, what would you like your code to look like in 5 years' time, given that you can start now? In 10 years' time?
+این رهنمود‌ها به توسعه دهندگان کمک می‌کند که بتوانند از سی پلاس پلاس جدید کارا تر استفاده کنند. منظور از جدید نگارش‌های ۱۱ و ۱۴ و ۱۷ از این زبان می‌باشد.
 
-The guidelines are focused on relatively higher-level issues, such as interfaces, resource management, memory management, and concurrency. Such
-rules affect application architecture and library design. Following the rules will lead to code that is statically type-safe, has no resource
-leaks, and catches many more programming logic errors than is common in code today. And it will run fast -- you can afford to do things right.
+رهنمود‌های مطرح شده در این مستند بیشتر ناظر بر مسایل و موضوعات بالادستی می‌باشند مانند واسط‌های برنامه نویسانه، مدیریت منابع، مدیریت حافظه و همروندی. قوانین گفته شده در مستند تاثیراتی بر معماری و طراحی کتابخانه‌ها و برنامه‌ها خواهند داشت و باعث خواهند شد که کتابخانه‌های گویا تر، بدون نشت حافظه و دارای خطاهای منطقی کمتری ایجاد گردد. و تمام این نکات با پایین ترین هزینه و در نتیجه با کارایی بسیار بال ان‌شا‌اللها قابل حصول خواهد بود.
 
-We are less concerned with low-level issues, such as naming conventions and indentation style. However, no topic that can help a programmer is
-out of bounds.
+این مستند فعلا توجه کمتری به مسایل سطح پایین تر مانند نام‌گذاری و یا قالب بندی کد دارد ولی هر مساله‌ای به توسعه دهنده برای بهتر کد زدن کمک کند شامل حوزه این سند می‌شود.
 
-Our initial set of rules emphasizes safety (of various forms) and simplicity. They may very well be too strict. We expect to have to introduce
-more exceptions to better accommodate real-world needs. We also need more rules.
+مجموعه قوانین اولیه بیشتر ناظر بر ایمنی در جنبه‌های متفاوت در عین سادگی هستند. همچنین قوانین سعی شده است بسیار سخت و سفت بیان بشوند و بعدا با اضافه کردن تبصره‌ها برای نیازمندی‌های متفاوت شرکت‌ها و پروژه‌ها بهتر تطبیق پیدا کنند. همچنین تعداد قوانین هنوز بسیار کم است و بسیاری از جنبه‌ها را پوشش نداده است که ان‌شا‌الله باید به مرور زمان بیشتر و جامع تر گردد.
 
-You will find some of the rules contrary to your expectations or even contrary to your experience. If we haven't suggested that you change your
-coding style in any way, we have failed! Please try to verify or disprove rules! In particular, we'd really like to have some of our rules
-backed up with measurements or better examples.
+بسیاری از قوانین ممکن است که با تجربیات شما و نحوه کاری شما تا به امروز همخوانی نداشته باشد، این یک امر طبیعی است و در واقع اگر این قوانین هیچ تغییری در سبک کد زدن شما و سبک کد نوشته شده در پروژه ایجاد نمی‌کرد، نشان از عدم کارکرد این قوانین بود. البته ما علاقمند هستیم که تجربیات شما و نظرات شما را در مورد اجرای این قوانین و اثراتی که می‌گذارد جویا شویم، و از شما خواهش می‌کنم که در قالب Issue ما را از پیشنهادات و انتقادات خود مطلع سازید.
+همچنین هرگونه مثال جدید و بهتری برای طرز استفاده قوانین و یا ارزیابی از فایده‌مندی هر کدام از قوانین بسیار خوشحال کننده و مایه مباهات است.
 
-You will find some of the rules obvious or even trivial. Please remember that one purpose of a guideline is to help someone who is less
-experienced or coming from a different background or language to get up to speed.
+بعضی از قوانین ممکن است بنظر بعضی از افراد بدیهی بنظر برسد. ولی لازم به ذکر است که چون این قوانین برای افرادی با تجربه‌های متفاوت و دانش متفاوت از زبان و برنامه‌نویسی نگاشته شده است این امر اجتناب ناپذیر است.
 
-The rules are designed to be supported by an analysis tool. Violations of rules will be flagged with references (or links) to the relevant rule.
-We do not expect you to memorize all the rules before trying to write code.
+اکثر قوانین سعی شده است که به نحوی طراحی گردند که با هزینه معقولی توسط ابزار‌های تحلیل کد قابل بررسی باشند، و از ابزار‌های تحلیل کد انتظار می‌رود که هر قانونی که زیر پا گذاشته شد به آن قانون اشاره کند. به همین منظور این انتظار که در وهله اول تمامی قوانین توسط توسعه دهندگان از حفظ گردد وجود ندارد و باید با کد زدن و تمرین ان‌شا‌الله این اتفاق بیفتد.
 
-The rules are meant for gradual introduction into a code base. We plan to build tools for that and hope others will too.
+این قوانین باید به صورت تدریجی به کد‌های منبع قدیمی عرضه گردند و این کد‌ها را با قوانین سازگار ساخت. ولی کد‌های جدید باید بر مبنای این قوانین نوشته شوند و در این کد‌ها تخطی از این قوانین مشاهده نگردد. همچنین بهتر می‌باشد که ابزار‌های ساخت کد و همگردان‌ها از این قوانین به نحوی پشتیبانی کنند.
 
-## Contributions and LICENSE
+## مشارکت و مجوز
 
-Comments and suggestions for improvements are most welcome. We plan to modify and extend this document as our understanding improves and the
-language and the set of available libraries improve. More details are found at [CONTRIBUTING](./CONTRIBUTING.md) and [LICENSE](./LICENSE) .
+از هرگونه نظر و پیشنهاد به منظور بهبود سند فارسی و انگلیسی بسیار استقبال می‌گردد، فقط نکته لازم به ذکر این است که با توجه به توسعه نسخه مرجع در محل دیگر که در بالا گفته شده است نکات و پیشنهادات مربوط به سند مرجع را در آن مکان بیان بفرمایید و نکات و پیشنهادات و حتی توسعه سند فارسی را در همین پروژه دنبال کنید.
+
+برای توضیحات بیشتر می‌توانید به نحوه [مشارکت] (./CONTRIBUTING.md) و [مجوز](./LICENSE) مراجعه کنید.
+
+[1]: GSL: Guideline Support Library
